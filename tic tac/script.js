@@ -1,8 +1,3 @@
-/*
-* Tic-Tac-Toe Game Logic
-* Handles game state, player turns, win detection, and UI updates.
-*/
-
 const statusDisplay = document.getElementById('statusDisplay');
 const gameBoard = document.getElementById('gameBoard');
 const cells = document.querySelectorAll('.cell');
@@ -23,7 +18,6 @@ const winningConditions = [
     [2, 4, 6]
 ];
 
-// Messages
 const winningMessage = () => `Player <span class="player-${currentPlayer.toLowerCase()}">${currentPlayer}</span> Wins!`;
 const drawMessage = () => `Game ended in a Tie!`;
 const currentPlayerTurn = () => `Player <span class="player-${currentPlayer.toLowerCase()}">${currentPlayer}</span>'s Turn`;
@@ -103,10 +97,9 @@ function handleRestartGame() {
     statusDisplay.innerHTML = currentPlayerTurn();
     cells.forEach(cell => {
         cell.innerHTML = "";
-        cell.className = "cell"; // Remove all extra classes like 'x', 'o', 'occupied', 'winning-cell'
+        cell.className = "cell"; 
     });
 }
-
-// Event Listeners
 cells.forEach(cell => cell.addEventListener('click', handleCellClick));
 resetBtn.addEventListener('click', handleRestartGame);
+
