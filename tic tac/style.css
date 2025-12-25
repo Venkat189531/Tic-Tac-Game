@@ -1,0 +1,192 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 100%);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --accent-x: #ff0055; /* Neon Pink */
+    --accent-o: #00e5ff; /* Cyan */
+    --accent-glow-x: rgba(255, 0, 85, 0.5);
+    --accent-glow-o: rgba(0, 229, 255, 0.5);
+    --grid-gap: 15px;
+    --cell-size: 100px;
+    --font-main: 'Outfit', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-primary);
+    overflow: hidden;
+}
+
+.main-container {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #fff, #b3b3b3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+/* Status Bar */
+.game-status-bar {
+    margin-bottom: 2rem;
+}
+
+.status-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.player-x { color: var(--accent-x); }
+.player-o { color: var(--accent-o); }
+
+/* Game Board */
+.game-board-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--grid-gap);
+    background: rgba(255, 255, 255, 0.03);
+    padding: var(--grid-gap);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    user-select: none;
+}
+
+.cell:hover:not(.occupied) {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.cell.occupied {
+    cursor: default;
+}
+
+.cell.x {
+    color: var(--accent-x);
+    text-shadow: 0 0 15px var(--accent-glow-x);
+}
+
+.cell.o {
+    color: var(--accent-o);
+    text-shadow: 0 0 15px var(--accent-glow-o);
+}
+
+/* Animations */
+@keyframes popIn {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.cell.x::before, .cell.o::before {
+    animation: popIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+/* Winning Line Highlight */
+.winning-cell {
+    background: rgba(255, 255, 255, 0.15) !important;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Controls */
+.reset-btn {
+    background: linear-gradient(45deg, var(--accent-x), #ff5e62);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    color: white;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(255, 0, 85, 0.4);
+}
+
+.reset-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 85, 0.6);
+}
+
+.reset-btn:active {
+    transform: translateY(0);
+}
+
+footer {
+    margin-top: 3rem;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.8rem;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    :root {
+        --cell-size: 80px;
+        --grid-gap: 10px;
+    }
+    
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .main-container {
+        padding: 1rem;
+    }
+}
