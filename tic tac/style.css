@@ -54,7 +54,6 @@ header h1 {
     letter-spacing: 1px;
 }
 
-/* Status Bar */
 .game-status-bar {
     margin-bottom: 2rem;
 }
@@ -75,7 +74,6 @@ header h1 {
 .player-x { color: var(--accent-x); }
 .player-o { color: var(--accent-o); }
 
-/* Game Board */
 .game-board-container {
     display: flex;
     justify-content: center;
@@ -129,7 +127,6 @@ header h1 {
     text-shadow: 0 0 15px var(--accent-glow-o);
 }
 
-/* Animations */
 @keyframes popIn {
     0% { opacity: 0; transform: scale(0.5); }
     100% { opacity: 1; transform: scale(1); }
@@ -139,13 +136,11 @@ header h1 {
     animation: popIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
 }
 
-/* Winning Line Highlight */
 .winning-cell {
     background: rgba(255, 255, 255, 0.15) !important;
     box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
-/* Controls */
 .reset-btn {
     background: linear-gradient(45deg, var(--accent-x), #ff5e62);
     border: none;
@@ -175,7 +170,6 @@ footer {
     font-size: 0.8rem;
 }
 
-/* Responsive Design */
 @media (max-width: 480px) {
     :root {
         --cell-size: 80px;
@@ -190,3 +184,4 @@ footer {
         padding: 1rem;
     }
 }
+
