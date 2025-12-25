@@ -4,8 +4,8 @@
     --card-border: rgba(255, 255, 255, 0.1);
     --text-primary: #ffffff;
     --text-secondary: #b3b3b3;
-    --accent-x: #ff0055; /* Neon Pink */
-    --accent-o: #00e5ff; /* Cyan */
+    --accent-x: #ff0055;
+    --accent-o: #00e5ff;
     --accent-glow-x: rgba(255, 0, 85, 0.5);
     --accent-glow-o: rgba(0, 229, 255, 0.5);
     --grid-gap: 15px;
@@ -184,4 +184,5 @@ footer {
         padding: 1rem;
     }
 }
+
 
